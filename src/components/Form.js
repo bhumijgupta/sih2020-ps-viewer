@@ -47,7 +47,8 @@ class Form extends Component {
   state = {
     category: "",
     technology: "",
-    disabled: true
+    disabledTech: true,
+    disabledBtn: true
   };
   getTechnologyList = () => {
     if (this.state.category === "") return [];
@@ -88,7 +89,10 @@ class Form extends Component {
               className="form-control"
               id="category"
               onChange={e => {
-                this.setState({ category: e.target.value, disabled: false });
+                this.setState({
+                  category: e.target.value,
+                  disabledTech: false
+                });
               }}
             >
               <option disabled value="">
@@ -104,9 +108,12 @@ class Form extends Component {
               className="form-control"
               id="technology"
               onChange={e => {
-                this.setState({ technology: e.target.value });
+                this.setState({
+                  technology: e.target.value,
+                  disabledBtn: false
+                });
               }}
-              disabled={this.state.disabled}
+              disabled={this.state.disabledTech}
             >
               <option disabled value="">
                 Select a technology
@@ -117,7 +124,7 @@ class Form extends Component {
           <div className="col-md-2 col-sm-12">
             <button
               className="btn btn-light w-100"
-              disabled={this.state.disabled}
+              disabled={this.state.disabledBtn}
             >
               Submit
             </button>

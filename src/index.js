@@ -9,6 +9,5 @@ import App from "./components/app";
 
 ReactDOM.render(<App />, document.querySelector("#root"));
 
-// TODO: add loader
 // TODO: handle errors
 // TODO: add functionality to specify link to each card for sharing

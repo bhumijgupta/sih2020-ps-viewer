@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL: "http://sih2020ps.herokuapp.com/api"
+  baseURL: "https://sih2020ps.herokuapp.com/api"
 });
