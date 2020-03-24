@@ -124,9 +124,9 @@ class Form extends Component {
           <div className="col-md-2 col-sm-12">
             <button
               className="btn btn-light w-100"
-              disabled={this.state.disabledBtn}
+              disabled={this.state.disabledBtn || this.props.disableForm}
             >
-              Submit
+              {this.props.disableForm ? "Loading..." : "Submit"}
             </button>
           </div>
         </div>

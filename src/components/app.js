@@ -6,22 +6,32 @@ import IdeasList from "./IdeasList";
 class App extends Component {
   state = {
     ideas: [],
-    showLoader: false
+    showLoader: false,
+    category: "",
+    technology: ""
   };
   onFormSubmit = async ({ category, technology }) => {
-    this.setState({ ideas: [], showLoader: true });
+    this.setState({ ideas: [], showLoader: true, category, technology });
     let rawIdeas = await sihApi.post("/", {
       category,
       technology
     });
-    this.setState({ ideas: rawIdeas.data.body, showLoader: false });
+    this.setState({
+      ideas: rawIdeas.data.body,
+      showLoader: false
+    });
   };
   render() {
     return (
       <div>
-        <JumboTron onFormSubmit={this.onFormSubmit} />
-        <div className="container">
+        <JumboTron
+          onFormSubmit={this.onFormSubmit}
+          disableForm={this.state.showLoader}
+        />
+        <div className="container IdeaListContainer">
           <IdeasList
+            category={this.state.category}
+            technology={this.state.technology}
             ideas={this.state.ideas}
             showLoader={this.state.showLoader}
           />

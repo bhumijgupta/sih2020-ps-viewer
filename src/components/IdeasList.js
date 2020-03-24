@@ -31,8 +31,18 @@ class IdeasList extends Component {
     if (this.props.showLoader) return <Loader />;
     else if (this.props.ideas.length === 0) return <div></div>;
     return (
-      <div className="card-columns" ref={this.divToFocus}>
-        {this.generateAllCards()}
+      <div>
+        <h2 className="text-center">
+          {this.props.category.toUpperCase()} -{" "}
+          {this.props.technology.toUpperCase()}
+        </h2>
+        <div
+          className="card-columns"
+          ref={this.divToFocus}
+          style={{ paddingTop: "20px" }}
+        >
+          {this.generateAllCards()}
+        </div>
       </div>
     );
   }

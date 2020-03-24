@@ -11,10 +11,13 @@ class JumboTron extends Component {
             SIH 2020 Problem Statement Viewer
           </h1>
           <p className="lead text-center">
-            A user freindly interface to view SIH 2020 problem statements
+            A user friendly interface to view SIH 2020 problem statements
           </p>
         </div>
-        <Form onFormSubmit={this.props.onFormSubmit} />
+        <Form
+          onFormSubmit={this.props.onFormSubmit}
+          disableForm={this.props.disableForm}
+        />
       </div>
     );
   }
